@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/classlevel`,
+    require('./classlevelCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/classlevel/:id`,
+    require('./classlevelUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/classlevel/import`,
+    require('./classlevelImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/classlevel`,
+    require('./classlevelDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/classlevel/autocomplete`,
+    require('./classlevelAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/classlevel`,
+    require('./classlevelList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/classlevel/:id`,
+    require('./classlevelFind').default,
+  );
+};

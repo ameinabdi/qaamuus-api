@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/chapter`,
+    require('./chapterCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/chapter/:id`,
+    require('./chapterUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/chapter/import`,
+    require('./chapterImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/chapter`,
+    require('./chapterDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/chapter/autocomplete`,
+    require('./chapterAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/chapter`,
+    require('./chapterList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/chapter/:id`,
+    require('./chapterFind').default,
+  );
+};

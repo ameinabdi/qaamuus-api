@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/video`,
+    require('./videoCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/video/:id`,
+    require('./videoUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/video/import`,
+    require('./videoImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/video`,
+    require('./videoDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/video/autocomplete`,
+    require('./videoAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/video`,
+    require('./videoList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/video/:id`,
+    require('./videoFind').default,
+  );
+};

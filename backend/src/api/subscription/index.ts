@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/subscription`,
+    require('./subscriptionCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/subscription/:id`,
+    require('./subscriptionUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/subscription/import`,
+    require('./subscriptionImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/subscription`,
+    require('./subscriptionDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/subscription/autocomplete`,
+    require('./subscriptionAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/subscription`,
+    require('./subscriptionList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/subscription/:id`,
+    require('./subscriptionFind').default,
+  );
+};
